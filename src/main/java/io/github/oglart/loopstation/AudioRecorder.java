@@ -1,10 +1,7 @@
 package io.github.oglart.loopstation;
 
 import javax.sound.sampled.*;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class AudioRecorder {
     public AudioRecorderResult record() {
@@ -38,6 +35,18 @@ public class AudioRecorder {
                 e.printStackTrace();
             }
             byte audioData[] = out.toByteArray();
+
+            try (final FileOutputStream fileOutputStream = new FileOutputStream("Output1.wav");
+                 final AudioInputStream audioInputStream1 = new AudioInputStream(
+                         new ByteArrayInputStream(audioData), format, audioData.length / format.getFrameSize())){
+                AudioSystem.write(audioInputStream1, AudioFileFormat.Type.WAVE, fileOutputStream);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
             // Get an input stream on the byte array
             // containing the data
             InputStream byteArrayInputStream = new ByteArrayInputStream(
