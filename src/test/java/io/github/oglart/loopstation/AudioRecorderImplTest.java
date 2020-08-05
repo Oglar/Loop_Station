@@ -7,11 +7,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.*;
 
-public class AudioRecorderTest {
+public class AudioRecorderImplTest {
 
     @Test
     public void itShouldRecordAudioSuccessfully() {
-        AudioRecorder sut = new AudioRecorder();
+        AudioRecorderImpl sut = new AudioRecorderImpl();
 
         AudioRecorderResult result = sut.record();
 
