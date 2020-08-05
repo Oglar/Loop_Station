@@ -19,3 +19,5 @@ Things to figure out still:
 - can I combine 2 Tracks? Best case with asking before recording over it if I want to save the file like that.
 - when I finish, can I combine all 3 Tracks to one finished product?
 - can I record my Keyboard via Midi input as well?
+
+- Homework: Implement Audio Player as its own class!
